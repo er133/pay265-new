@@ -1,61 +1,75 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f8ff; /* Light blue background */
-    color: #003366; /* Dark blue text */
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
-
-header {
-    background-color: #0077cc; /* Medium blue */
-    color: white;
-    padding: 15px;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-form {
-    background: white;
-    padding: 20px;
-    margin: 20px auto;
-    border-radius: 10px;
-    max-width: 500px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-input, select {
-    width: 90%;
-    padding: 10px;
-    margin: 8px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-button {
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #0077cc;
     color: white;
     padding: 10px 20px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    gap: 5px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border-radius: 5px;
     border: none;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: white;
+    color: #0077cc;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.nav-links a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Hero Section */
+.hero {
+    background-color: #f0f8ff;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.hero button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: #005fa3;
+/* Featured Products */
+.featured {
+    padding: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
 }
 
 .product-card {
     background: white;
-    margin: 15px;
     padding: 15px;
-    border-radius: 10px;
-    display: inline-block;
-    width: 250px;
+    border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: left;
-}
-
-.product-card h3 {
-    color: #0077cc;
 }
