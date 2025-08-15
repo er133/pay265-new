@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay265 Marketplace</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay265 Marketplace</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Pay265 Marketplace</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Seller Dashboard</a>
-            <a href="#">Buyer Account</a>
-        </nav>
-    </header>
+  <header>
+    <h1>Pay265 Marketplace</h1>
+    <nav>
+      <a href="#" id="buyerView">Buyer View</a>
+      <a href="#" id="sellerView">Seller Dashboard</a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="product-list">
-            <div class="product-card">
-                <h2>Maize Flour</h2>
-                <p class="price">MWK 15,000</p>
-                <p class="location">Lilongwe</p>
-                <button>Buy Now</button>
-            </div>
-            <div class="product-card">
-                <h2>Groundnuts</h2>
-                <p class="price">MWK 8,500</p>
-                <p class="location">Blantyre</p>
-                <button>Buy Now</button>
-            </div>
-        </section>
-    </main>
+  <main id="buyerSection">
+    <h2>Products</h2>
+    <div id="productList" class="product-grid"></div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Pay265 Marketplace - Malawi</p>
-    </footer>
+  <main id="sellerSection" style="display:none;">
+    <h2>Seller Dashboard</h2>
+    <form id="addProductForm">
+      <input type="text" id="productName" placeholder="Product Name" required />
+      <input type="number" id="productPrice" placeholder="Price (MWK)" required />
+      <select id="sellerDistrict" required>
+        <option value="">Select District</option>
+        <option>Blantyre</option>
+        <option>Lilongwe</option>
+        <option>Mzuzu</option>
+        <option>Zomba</option>
+        <option>Kasungu</option>
+        <option>Salima</option>
+        <option>Mangochi</option>
+        <option>Mulanje</option>
+        <option>Nkhotakota</option>
+        <option>Dedza</option>
+        <option>Chiradzulu</option>
+        <option>Balaka</option>
+      </select>
+      <select id="deliveryOption" required>
+        <option value="">Delivery Option</option>
+        <option>Meet in person</option>
+        <option>Transaction & Send</option>
+      </select>
+      <button type="submit">Add Product</button>
+    </form>
+    <div id="sellerProducts"></div>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
+
+               
