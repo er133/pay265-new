@@ -3,44 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pay265 Marketplace</title>
+    <title>Pay265 - Home</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
-        <h1>Pay265 Marketplace</h1>
-        <p>Connect Buyers & Sellers Across Malawi</p>
+        <h1>Welcome to Pay265</h1>
+        <p>Malawi's Marketplace for Buyers & Sellers</p>
     </header>
 
-    <main>
-        <section id="seller-dashboard">
-            <h2>Seller Dashboard</h2>
-            <form id="sellerForm">
-                <input type="text" id="productName" placeholder="Product Name" required>
-                <input type="number" id="productPrice" placeholder="Price in MWK" required>
-                
-                <label for="district">Select District:</label>
-                <select id="district" required></select>
+    <section style="padding: 20px;">
+        <h2>Discover, Buy, and Sell in MWK</h2>
+        <p>Connect with sellers across all districts of Malawi. Meet in person or have your items delivered.</p>
+        
+        <div style="margin: 20px;">
+            <a href="marketplace.html"><button>Go to Marketplace</button></a>
+            <a href="seller.html"><button>Seller Dashboard</button></a>
+        </div>
+    </section>
 
-                <div>
-                    <label><input type="radio" name="deliveryOption" value="Meet in Person" required> Meet in Person</label>
-                    <label><input type="radio" name="deliveryOption" value="Delivery"> Delivery</label>
-                </div>
-
-                <button type="submit">Add Product</button>
-            </form>
-        </section>
-
-        <section id="marketplace">
-            <h2>Available Products</h2>
-            <div id="productList"></div>
-        </section>
-    </main>
+    <section style="background-color: white; padding: 20px;">
+        <h2>Featured Products</h2>
+        <div id="featuredProducts" style="display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="product-card">
+                <h3>Maize (50kg)</h3>
+                <p>MWK 30,000</p>
+                <p>Lilongwe</p>
+            </div>
+            <div class="product-card">
+                <h3>Tomatoes (20kg)</h3>
+                <p>MWK 15,000</p>
+                <p>Blantyre</p>
+            </div>
+            <div class="product-card">
+                <h3>Fresh Fish</h3>
+                <p>MWK 8,500</p>
+                <p>Salima</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2025 Pay265 - Malawi Marketplace</p>
+        <p>&copy; 2025 Pay265 - All Rights Reserved</p>
     </footer>
 
-    <script src="app.js"></script>
 </body>
 </html>
