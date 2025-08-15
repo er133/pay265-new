@@ -8,24 +8,33 @@
 </head>
 <body>
 
-    <header>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">Pay265</div>
+        <form class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button type="submit">Search</button>
+        </form>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="marketplace.html">Marketplace</a>
+            <a href="seller.html">Seller Dashboard</a>
+            <a href="buyer.html">Buyer Dashboard</a>
+            <a href="settings.html">Settings</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
         <h1>Welcome to Pay265</h1>
-        <p>Malawi's Marketplace for Buyers & Sellers</p>
+        <p>Malawi's #1 Marketplace - Buy & Sell with Ease</p>
+        <a href="marketplace.html"><button>Shop Now</button></a>
     </header>
 
-    <section style="padding: 20px;">
-        <h2>Discover, Buy, and Sell in MWK</h2>
-        <p>Connect with sellers across all districts of Malawi. Meet in person or have your items delivered.</p>
-        
-        <div style="margin: 20px;">
-            <a href="marketplace.html"><button>Go to Marketplace</button></a>
-            <a href="seller.html"><button>Seller Dashboard</button></a>
-        </div>
-    </section>
-
-    <section style="background-color: white; padding: 20px;">
+    <!-- Featured Products -->
+    <section class="featured">
         <h2>Featured Products</h2>
-        <div id="featuredProducts" style="display: flex; flex-wrap: wrap; justify-content: center;">
+        <div class="product-grid">
             <div class="product-card">
                 <h3>Maize (50kg)</h3>
                 <p>MWK 30,000</p>
@@ -40,6 +49,11 @@
                 <h3>Fresh Fish</h3>
                 <p>MWK 8,500</p>
                 <p>Salima</p>
+            </div>
+            <div class="product-card">
+                <h3>Groundnuts (10kg)</h3>
+                <p>MWK 12,000</p>
+                <p>Mzuzu</p>
             </div>
         </div>
     </section>
