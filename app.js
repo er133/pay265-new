@@ -1,62 +1,45 @@
-// Product List Storage
-let products = JSON.parse(localStorage.getItem("products")) || [];
-
-// Districts in Malawi
-const malawiDistricts = [
-    "Blantyre", "Lilongwe", "Mzuzu", "Zomba", "Mangochi", "Salima", 
-    "Karonga", "Nkhotakota", "Balaka", "Chikwawa", "Chiradzulu", 
-    "Machinga", "Mulanje", "Mwanza", "Nsanje", "Ntcheu", "Dedza", 
-    "Rumphi", "Mzimba", "Dowa", "Kasungu", "Nkhata Bay", "Ntchisi", 
-    "Likoma", "Thyolo", "Phalombe"
+// List of Malawi districts
+const districts = [
+    "Balaka", "Blantyre", "Chikwawa", "Chiradzulu", "Chitipa", "Dedza",
+    "Dowa", "Karonga", "Kasungu", "Likoma", "Lilongwe", "Machinga",
+    "Mangochi", "Mchinji", "Mulanje", "Mwanza", "Mzimba", "Neno",
+    "Nkhata Bay", "Nkhotakota", "Nsanje", "Ntcheu", "Ntchisi",
+    "Phalombe", "Rumphi", "Salima", "Thyolo", "Zomba"
 ];
 
 // Populate district dropdown
-function populateDistricts() {
-    const districtSelect = document.getElementById("district");
-    malawiDistricts.forEach(d => {
-        let option = document.createElement("option");
-        option.value = d;
-        option.textContent = d;
-        districtSelect.appendChild(option);
-    });
-}
+const districtSelect = document.getElementById("district");
+districts.forEach(d => {
+    const option = document.createElement("option");
+    option.value = d;
+    option.textContent = d;
+    districtSelect.appendChild(option);
+});
 
-// Add product
-function addProduct(event) {
-    event.preventDefault();
-    const name = document.getElementById("productName").value;
-    const price = document.getElementById("productPrice").value;
-    const district = document.getElementById("district").value;
-    const delivery = document.querySelector('input[name="deliveryOption"]:checked').value;
+const sellerForm = document.getElementById("sellerForm");
+const productList = document.getElementById("productList");
 
-    if (name && price && district) {
-        products.push({ name, price, district, delivery });
-        localStorage.setItem("products", JSON.stringify(products));
-        document.getElementById("sellerForm").reset();
-        displayProducts();
-    }
-}
+// Handle seller form submission
+sellerForm.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-// Display products
-function displayProducts() {
-    const productList = document.getElementById("productList");
-    productList.innerHTML = "";
-    products.forEach(p => {
-        const card = document.createElement("div");
-        card.classList.add("product-card");
-        card.innerHTML = `
-            <h3>${p.name}</h3>
-            <p><strong>MWK:</strong> ${p.price}</p>
-            <p><strong>District:</strong> ${p.district}</p>
-            <p><strong>Option:</strong> ${p.delivery}</p>
-        `;
-        productList.appendChild(card);
-    });
-}
+    const productName = document.getElementById("productName").value;
+    const productPrice = document.getElementById("productPrice").value;
+    const productDistrict = document.getElementById("district").value;
+    const deliveryOption = document.querySelector('input[name="deliveryOption"]:checked').value;
 
-// Run on page load
-document.addEventListener("DOMContentLoaded", () => {
-    populateDistricts();
-    displayProducts();
-    document.getElementById("sellerForm").addEventListener("submit", addProduct);
+    // Create product card
+    const card = document.createElement("div");
+    card.classList.add("product-card");
+    card.innerHTML = `
+        <h3>${productName}</h3>
+        <p><strong>Price:</strong> MWK ${productPrice}</p>
+        <p><strong>Location:</strong> ${productDistrict}</p>
+        <p><strong>Option:</strong> ${deliveryOption}</p>
+    `;
+
+    productList.appendChild(card);
+
+    // Reset form
+    sellerForm.reset();
 });
