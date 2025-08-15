@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mw-gradient: linear-gradient(90deg, #000000 0%, #b30000 50%, #00a651 100%);
+}
+body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji"; }
+.flagbar { background: var(--mw-gradient); }
+.card { @apply bg-white rounded-xl shadow p-4; }
+.btn { @apply px-3 py-2 rounded-lg font-medium; }
+.btn-black { @apply bg-black text-white; }
+.btn-red { @apply bg-mwRed text-white; }
+.btn-green { @apply bg-mwGreen text-white; }
+.input { @apply border rounded-lg p-2 w-full; }
+.select { @apply border rounded-lg p-2 w-full; }
+.badge { @apply inline-block text-xs px-2 py-1 rounded-full bg-slate-100; }
