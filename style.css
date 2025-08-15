@@ -1,111 +1,61 @@
-/* General Reset */
-* {
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff; /* Light blue background */
+    color: #003366; /* Dark blue text */
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-/* Page Background */
-body {
-    background-color: #f5f9ff;
-    color: #333;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background-color: #0077ff;
-    color: white;
-    padding: 20px;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2rem;
+header {
+    background-color: #0077cc; /* Medium blue */
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-header p {
-    font-size: 1.1rem;
-    opacity: 0.9;
-}
-
-/* Main Layout */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+form {
+    background: white;
     padding: 20px;
-}
-
-/* Seller Dashboard */
-#seller-dashboard {
-    flex: 1;
-    min-width: 300px;
-    background-color: white;
-    padding: 20px;
+    margin: 20px auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-#seller-dashboard h2 {
-    color: #0077ff;
-    margin-bottom: 15px;
-}
-
-#sellerForm input, #sellerForm select, #sellerForm button {
-    width: 100%;
+input, select {
+    width: 90%;
     padding: 10px;
-    margin-bottom: 12px;
+    margin: 8px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
 }
 
-#sellerForm button {
-    background-color: #0077ff;
+button {
+    background-color: #0077cc;
     color: white;
-    font-weight: bold;
-    cursor: pointer;
+    padding: 10px 20px;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-#sellerForm button:hover {
-    background-color: #005fcc;
+button:hover {
+    background-color: #005fa3;
 }
 
-/* Marketplace */
-#marketplace {
-    flex: 2;
-    min-width: 300px;
-}
-
-#marketplace h2 {
-    color: #0077ff;
-    margin-bottom: 15px;
-}
-
-/* Product Cards */
 .product-card {
-    background-color: white;
+    background: white;
+    margin: 15px;
     padding: 15px;
-    margin-bottom: 15px;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: inline-block;
+    width: 250px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
 .product-card h3 {
-    color: #0077ff;
-}
-
-.product-card p {
-    margin: 5px 0;
-}
-
-/* Footer */
-footer {
-    background-color: #0077ff;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    color: #0077cc;
 }
