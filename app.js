@@ -1,81 +1,62 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const buyerViewBtn = document.getElementById("buyerView");
-  const sellerViewBtn = document.getElementById("sellerView");
-  const buyerSection = document.getElementById("buyerSection");
-  const sellerSection = document.getElementById("sellerSection");
-  const productList = document.getElementById("productList");
-  const addProductForm = document.getElementById("addProductForm");
-  const sellerProductsDiv = document.getElementById("sellerProducts");
+// Product List Storage
+let products = JSON.parse(localStorage.getItem("products")) || [];
 
-  let products = JSON.parse(localStorage.getItem("pay265_products")) || [];
+// Districts in Malawi
+const malawiDistricts = [
+    "Blantyre", "Lilongwe", "Mzuzu", "Zomba", "Mangochi", "Salima", 
+    "Karonga", "Nkhotakota", "Balaka", "Chikwawa", "Chiradzulu", 
+    "Machinga", "Mulanje", "Mwanza", "Nsanje", "Ntcheu", "Dedza", 
+    "Rumphi", "Mzimba", "Dowa", "Kasungu", "Nkhata Bay", "Ntchisi", 
+    "Likoma", "Thyolo", "Phalombe"
+];
 
-  function saveProducts() {
-    localStorage.setItem("pay265_products", JSON.stringify(products));
-  }
-
-  function renderProducts() {
-    productList.innerHTML = "";
-    products.forEach((p, index) => {
-      const div = document.createElement("div");
-      div.classList.add("product-card");
-      div.innerHTML = `
-        <h3>${p.name}</h3>
-        <p><strong>${p.price} MWK</strong></p>
-        <p>Seller: ${p.district}</p>
-        <p>Delivery: ${p.delivery}</p>
-      `;
-      productList.appendChild(div);
+// Populate district dropdown
+function populateDistricts() {
+    const districtSelect = document.getElementById("district");
+    malawiDistricts.forEach(d => {
+        let option = document.createElement("option");
+        option.value = d;
+        option.textContent = d;
+        districtSelect.appendChild(option);
     });
-  }
+}
 
-  function renderSellerProducts() {
-    sellerProductsDiv.innerHTML = "";
-    products.forEach((p, index) => {
-      const div = document.createElement("div");
-      div.classList.add("product-card");
-      div.innerHTML = `
-        <h3>${p.name}</h3>
-        <p><strong>${p.price} MWK</strong></p>
-        <p>${p.district}</p>
-        <p>${p.delivery}</p>
-        <button onclick="deleteProduct(${index})">Delete</button>
-      `;
-      sellerProductsDiv.appendChild(div);
-    });
-  }
-
-  window.deleteProduct = function (index) {
-    products.splice(index, 1);
-    saveProducts();
-    renderProducts();
-    renderSellerProducts();
-  };
-
-  addProductForm.addEventListener("submit", (e) => {
-    e.preventDefault();
+// Add product
+function addProduct(event) {
+    event.preventDefault();
     const name = document.getElementById("productName").value;
     const price = document.getElementById("productPrice").value;
-    const district = document.getElementById("sellerDistrict").value;
-    const delivery = document.getElementById("deliveryOption").value;
+    const district = document.getElementById("district").value;
+    const delivery = document.querySelector('input[name="deliveryOption"]:checked').value;
 
-    products.push({ name, price, district, delivery });
-    saveProducts();
-    renderProducts();
-    renderSellerProducts();
+    if (name && price && district) {
+        products.push({ name, price, district, delivery });
+        localStorage.setItem("products", JSON.stringify(products));
+        document.getElementById("sellerForm").reset();
+        displayProducts();
+    }
+}
 
-    addProductForm.reset();
-  });
+// Display products
+function displayProducts() {
+    const productList = document.getElementById("productList");
+    productList.innerHTML = "";
+    products.forEach(p => {
+        const card = document.createElement("div");
+        card.classList.add("product-card");
+        card.innerHTML = `
+            <h3>${p.name}</h3>
+            <p><strong>MWK:</strong> ${p.price}</p>
+            <p><strong>District:</strong> ${p.district}</p>
+            <p><strong>Option:</strong> ${p.delivery}</p>
+        `;
+        productList.appendChild(card);
+    });
+}
 
-  buyerViewBtn.addEventListener("click", () => {
-    buyerSection.style.display = "block";
-    sellerSection.style.display = "none";
-  });
-
-  sellerViewBtn.addEventListener("click", () => {
-    buyerSection.style.display = "none";
-    sellerSection.style.display = "block";
-  });
-
-  renderProducts();
-  renderSellerProducts();
+// Run on page load
+document.addEventListener("DOMContentLoaded", () => {
+    populateDistricts();
+    displayProducts();
+    document.getElementById("sellerForm").addEventListener("submit", addProduct);
 });
