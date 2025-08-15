@@ -1,63 +1,111 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background-color: #111;
-  color: white;
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+/* Page Background */
+body {
+    background-color: #f5f9ff;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
 header {
-  background: linear-gradient(to right, black, red, green);
-  padding: 10px;
-  text-align: center;
+    background-color: #0077ff;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
 header h1 {
-  margin: 0;
+    font-size: 2rem;
 }
 
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
 }
 
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  padding: 20px;
+/* Main Layout */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
 }
 
+/* Seller Dashboard */
+#seller-dashboard {
+    flex: 1;
+    min-width: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#seller-dashboard h2 {
+    color: #0077ff;
+    margin-bottom: 15px;
+}
+
+#sellerForm input, #sellerForm select, #sellerForm button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#sellerForm button {
+    background-color: #0077ff;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+#sellerForm button:hover {
+    background-color: #005fcc;
+}
+
+/* Marketplace */
+#marketplace {
+    flex: 2;
+    min-width: 300px;
+}
+
+#marketplace h2 {
+    color: #0077ff;
+    margin-bottom: 15px;
+}
+
+/* Product Cards */
 .product-card {
-  background: #222;
-  border-radius: 8px;
-  padding: 15px;
-  text-align: center;
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .product-card h3 {
-  margin: 10px 0 5px;
+    color: #0077ff;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px;
+.product-card p {
+    margin: 5px 0;
 }
 
-input, select, button {
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
-}
-
-button {
-  background-color: red;
-  color: white;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: green;
+/* Footer */
+footer {
+    background-color: #0077ff;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
